@@ -1,0 +1,74 @@
+#player-summary-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  color: #333;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .loading {
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+  }
+
+  .player-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    background: #f9f9f9;
+
+    h2 {
+      margin-top: 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+
+      th, td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: center;
+      }
+
+      th {
+        background-color: #eee;
+      }
+    }
+
+    .court-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+
+      .court-action {
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 6px;
+        position: relative;
+        width: 200px;
+        height: 200px;
+        background-color: #fff;
+
+        h4 {
+          text-align: center;
+          margin: 0 0 10px 0;
+        }
+
+        .shot {
+          position: absolute;
+          width: 8px;
+          height: 8px;
+          background-color: red;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}

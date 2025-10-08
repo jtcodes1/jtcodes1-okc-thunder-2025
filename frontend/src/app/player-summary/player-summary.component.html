@@ -1,0 +1,45 @@
+<div id="player-summary-container">
+  <h1>OKC Player Stats Summary</h1>
+
+  <div *ngIf="loading" class="loading">
+    Loading player data...
+  </div>
+
+  <div *ngIf="!loading && players.length === 0">
+    No player data available.
+  </div>
+
+  <div *ngFor="let player of players" class="player-card">
+    <h2>{{ player.name }}</h2>
+
+    <h3>Totals by Action</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Action</th>
+          <th>Shots</th>
+          <th>Passes</th>
+          <th>Turnovers</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let action of player.stats | keyvalue">
+          <td>{{ action.key }}</td>
+          <td>{{ action.value.shots || 0 }}</td>
+          <td>{{ action.value.passes || 0 }}</td>
+          <td>{{ action.value.turnovers || 0 }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Court Actions</h3>
+    <div class="court-grid">
+      <div *ngFor="let action of player.stats | keyvalue" class="court-action">
+        <h4>{{ action.key }}</h4>
+        <div class="shot" *ngFor="let shot of action.value.shotsData || []"
+             [style.left.px]="shot.x" [style.top.px]="shot.y">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
